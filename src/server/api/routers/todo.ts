@@ -24,6 +24,7 @@ export const todoRouter = createTRPCRouter({
     return ctx.prisma.todo.create({
       data: {
         text: input,
+        // userId: ctx.session.user.id,
         user: {
           connect: {
             id: ctx.session.user.id,
